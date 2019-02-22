@@ -1,0 +1,1 @@
+document.getElementById("rand").innerHTML = Math.random();
