@@ -26,9 +26,9 @@ object Main {
       pathEndOrSingleSlash {
         getFromResource("index.html")
       } ~ path("css" / Segment) { name =>
-        getFromResource("css/" + name)
+        getFromResource(s"css/$name")
       } ~ path("js" / Segment) { name =>
-        getFromResource("js/" + name)
+        getFromResource(s"js/$name")
       }
 
     Http().bindAndHandle(route,"localhost",8080)
