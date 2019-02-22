@@ -12,16 +12,7 @@ object Main {
 
     implicit val actorSystem = ActorSystem("system")
     implicit val actorMaterializer = ActorMaterializer()
-    def index = path("") {
-      getFromResource("index.html")
-    }
-    def css = (pathPrefix("css") & path(Segment)) { resource => {
-      println("what!")
-      getFromResource(s"css/$resource")
-      }
-    }
-    def js = (pathPrefix("js") & path(Segment)) { resource => getFromResource(s"js/$resource") }
-
+    
     lazy val route: Route =
       pathEndOrSingleSlash {
         getFromResource("index.html")
